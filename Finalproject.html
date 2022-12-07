@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css">
+    <title>Document</title>
+<style>
+    table, td{
+        border:1px solid black;
+    }
+</style>
+</html>
+<body>
+	<p>
+		FINAL PROJECT
+	</p>
+  <form action="https://jsonplaceholder.typicode.com/" method="POST">
+
+  <table style="width:50%">
+  <td><input type="radio" name="ID:" placeholder="GET" value="GET">GET</td><tr>
+  <td><input type="radio" name="ID:" placeholder="POST" value="POST">POST</td><tr><tr>
+
+
+  <td><p>TITLE</p></td></tr>
+  <td><input type="radio" name="title:" placeholder="The Dragon" value="The Dragon">The Dragon</td><tr>
+  <td><input type="radio" name="title:" placeholder="The Last Assassin" value="The Last Assassin">The Last Assassin</td><tr>
+  <td><input type="radio" name="title:" placeholder="Lost Ship" value="Lost Ship">Lost Ship</td><tr>
+  <td><input type="radio" name="title:" placeholder="Last Command" value="Last Command">Last Command</td><tr>
+
+  <td><p>BODY</p></td></tr>
+  <td><input type="radio"  name="body:" placeholder="Great Dragon" value="Great Dragon">Great Dragon</td><tr>
+  <td><input type="radio"  name="body:" placeholder="Final" value="Final">Final</td><tr>
+  <td><input type="radio"  name="body:" placeholder="Ghost" value="Ghost">Ghost</td><tr>
+  <td><input type="radio"  name="body:" placeholder="The Last" value="The Last">The Last</td>
+	
+</table>
+</form>
+	
+	<button type="button" onclick="displayRadioValue()">
+		Submit
+	</button>
+	
+	<br>
+	
+	<div id="result"></div>
+	
+	<script>
+		function displayRadioValue() {
+			document.getElementById("result").innerHTML = "";
+			var ele = document.getElementsByTagName('input');
+            fetch("https://jsonplaceholder.typicode.com/posts",{
+                method: 'POST',
+            })
+
+            
+			
+			for(i = 0; i < ele.length; i++) {
+				
+				if(ele[i].type="radio") {
+				
+					if(ele[i].checked)
+						document.getElementById("result").innerHTML
+								+= ele[i].name + "<h1> "
+								+ ele[i].value + " ";
+           
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>					
